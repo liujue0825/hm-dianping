@@ -20,9 +20,11 @@ import static com.hmdp.utils.RedisConstants.*;
 @Component
 @Slf4j
 public class CacheClient {
-    @Resource
     private StringRedisTemplate redisTemplate;
 
+    public CacheClient (StringRedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
     private static final ExecutorService CACHE_REBUILD_EXECUTOR =
             Executors.newFixedThreadPool(10);
 
